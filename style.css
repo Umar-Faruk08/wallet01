@@ -1,0 +1,741 @@
+/* ===============================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ===============================
+   BODY
+================================ */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    color: #1f2937;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+
+/* ===============================
+   MAIN WALLET
+================================ */
+
+#walletContent {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+}
+
+
+/* ===============================
+   HEADER
+================================ */
+
+.wallet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.wallet-header h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* ===============================
+   BUTTONS
+================================ */
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.2s;
+}
+
+.primary-button {
+    width: 100%;
+    background: #627eea;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.primary-button:hover {
+    background: #536dd5;
+    transform: translateY(-1px);
+}
+
+.lock-button {
+    background: #ffffff;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    padding: 10px 16px;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+.lock-button:hover {
+    background: #fef2f2;
+}
+
+.refresh-button {
+    margin-top: 15px;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+.refresh-button:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.secondary-button {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 9px 14px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.secondary-button:hover {
+    background: #e5e7eb;
+}
+
+
+/* ===============================
+   BALANCE CARD
+================================ */
+
+.balance-card {
+    background: #627eea;
+    color: white;
+    padding: 28px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(98,126,234,0.2);
+}
+
+.balance-label {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 8px;
+}
+
+.balance-card h2 {
+    font-size: 36px;
+}
+
+
+/* ===============================
+   CARD
+================================ */
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: -12px;
+    margin-bottom: 20px;
+}
+
+
+/* ===============================
+   WALLET INFORMATION
+================================ */
+
+.info-group {
+    margin-bottom: 22px;
+}
+
+.info-group label,
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.value-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.value-row p {
+    flex: 1;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    border-radius: 8px;
+    word-break: break-all;
+    font-size: 13px;
+}
+
+.value-row button {
+    background: #eef2ff;
+    color: #4f46e5;
+    padding: 10px 14px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+.value-row button:hover {
+    background: #e0e7ff;
+}
+
+
+/* ===============================
+   INPUTS
+================================ */
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    outline: none;
+    font-size: 14px;
+    background: #ffffff;
+}
+
+.input-group input:focus {
+    border-color: #627eea;
+    box-shadow: 0 0 0 3px rgba(98,126,234,0.12);
+}
+
+.amount-input {
+    position: relative;
+}
+
+.amount-input input {
+    padding-right: 60px;
+}
+
+.amount-input span {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    font-weight: bold;
+    color: #6b7280;
+}
+
+.send-button {
+    margin-top: 5px;
+}
+
+
+/* ===============================
+   TRANSACTION STATUS
+================================ */
+
+.status-message {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* ===============================
+   TRANSACTION HASH
+================================ */
+
+.hash-box {
+    margin-top: 20px;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.hash-box p:last-child {
+    margin-top: 8px;
+    font-size: 13px;
+    word-break: break-all;
+    color: #4f46e5;
+}
+
+
+/* ===============================
+   TRANSACTION HISTORY
+================================ */
+
+#transactionHistory {
+    color: #374151;
+}
+
+#transactionHistory > div {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+#transactionHistory p {
+    margin-bottom: 7px;
+    font-size: 13px;
+    word-break: break-all;
+}
+
+#transactionHistory a {
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+#transactionHistory a:hover {
+    text-decoration: underline;
+}
+
+
+/* ===============================
+   TRANSACTION DETAILS
+================================ */
+
+.detail-row {
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-row:last-of-type {
+    border-bottom: none;
+}
+
+.detail-row span {
+    display: block;
+    color: #6b7280;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.detail-row p {
+    font-size: 13px;
+    word-break: break-all;
+}
+
+.etherscan-button {
+    display: inline-block;
+    margin-top: 20px;
+    background: #627eea;
+    color: white;
+    text-decoration: none;
+    padding: 11px 16px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.etherscan-button:hover {
+    background: #536dd5;
+}
+
+
+/* ===============================
+   LOCK SCREEN
+================================ */
+
+#lockScreen {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lock-card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.lock-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.lock-card h1 {
+    margin-bottom: 10px;
+}
+
+.lock-card p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.lock-card button {
+    width: 100%;
+    background: #627eea;
+    color: white;
+    padding: 13px;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 12px;
+    padding: 10px 0 30px;
+}
+
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .wallet-header {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .wallet-header h1 {
+        font-size: 23px;
+    }
+
+    .balance-card h2 {
+        font-size: 30px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .value-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .value-row button {
+        width: 100%;
+    }
+
+}
+/* ===============================
+   HEADER ACTIONS
+================================ */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-button {
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 10px 13px;
+    border-radius: 9px;
+    font-size: 17px;
+}
+
+.theme-button:hover {
+    background: #f3f4f6;
+}
+
+
+/* ===============================
+   DARK MODE
+================================ */
+
+body.dark-mode {
+    background: #111827;
+    color: #f9fafb;
+}
+
+body.dark-mode .card,
+body.dark-mode .lock-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .subtitle,
+body.dark-mode .section-description,
+body.dark-mode .info-group label,
+body.dark-mode .input-group label {
+    color: #9ca3af;
+}
+
+body.dark-mode .value-row p,
+body.dark-mode .hash-box,
+body.dark-mode #transactionHistory > div {
+    background: #111827;
+    border-color: #374151;
+    color: #f9fafb;
+}
+
+body.dark-mode .input-group input {
+    background: #111827;
+    border-color: #4b5563;
+    color: white;
+}
+
+body.dark-mode .input-group input::placeholder {
+    color: #6b7280;
+}
+
+body.dark-mode .secondary-button {
+    background: #374151;
+    color: white;
+}
+
+body.dark-mode .theme-button {
+    background: #1f2937;
+    border-color: #4b5563;
+}
+
+body.dark-mode .lock-button {
+    background: #1f2937;
+    border-color: #7f1d1d;
+}
+
+body.dark-mode .detail-row {
+    border-color: #374151;
+}
+
+body.dark-mode footer {
+    color: #6b7280;
+}
+/* ===============================
+   TOAST NOTIFICATION
+================================ */
+
+#toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    background: #111827;
+    color: white;
+
+    padding: 13px 18px;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    pointer-events: none;
+
+    transition: 0.3s ease;
+
+    z-index: 9999;
+}
+
+#toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ===============================
+   TRANSACTION STATUS BADGE
+================================ */
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-badge.confirmed {
+    background: #dcfce7;
+    color: #166534;
+}
+/* ===============================
+   TRANSACTION TYPE
+================================ */
+
+.transaction-type {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.transaction-type.sent {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.transaction-type.received {
+    background: #dcfce7;
+    color: #15803d;
+}
+/* ===============================
+   PROFESSIONAL TRANSACTION CARD
+================================ */
+
+#transactionHistory > div {
+    background: white;
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    border: 1px solid #e5e7eb;
+
+    transition: 0.2s ease;
+}
+
+#transactionHistory > div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+/* TOP */
+
+.transaction-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.transaction-top strong:first-child {
+    font-size: 15px;
+}
+
+
+/* INFO */
+
+.transaction-info p {
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 10px;
+
+    font-size: 13px;
+    word-break: break-all;
+}
+
+.transaction-info p span:first-child {
+    min-width: 55px;
+    color: #6b7280;
+    font-weight: bold;
+}
+
+
+/* DARK MODE */
+
+body.dark-mode #transactionHistory > div {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .transaction-top {
+    border-color: #374151;
+}
+/* ===============================
+   DASHBOARD
+================================ */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.dashboard-card {
+    padding: 20px;
+    border-radius: 14px;
+    background: white;
+    border: 1px solid #e5e7eb;
+}
+
+
+.dashboard-card p {
+    margin: 0 0 8px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.dashboard-card h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+
+/* DARK MODE */
+
+body.dark-mode .dashboard-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .dashboard-card p {
+    color: #9ca3af;
+}
+@media (max-width: 800px) {
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+}

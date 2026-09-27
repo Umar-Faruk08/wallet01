@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ethereum Wallet</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Ethers.js -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.17.0/dist/ethers.umd.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- LOCK SCREEN -->
+    <!-- ========================= -->
+
+    <div id="lockScreen" style="display: none;">
+
+        <div class="lock-card">
+
+            <div class="lock-icon">
+                🔒
+            </div>
+
+            <h1>Wallet Locked</h1>
+
+            <p>
+                Your wallet is currently locked.
+            </p>
+
+            <button id="unlockWallet">
+                Unlock Wallet
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- WALLET CONTENT -->
+    <!-- ========================= -->
+
+    <div id="walletContent">
+
+        <!-- HEADER -->
+
+        <header class="wallet-header">
+
+    <div>
+        <h1>Ethereum Wallet</h1>
+
+        <p class="subtitle">
+            Securely manage your Ethereum
+        </p>
+    </div>
+
+    <div class="header-actions">
+
+        <button id="themeToggle" class="theme-button">
+            🌙
+        </button>
+
+        <button id="lockWallet" class="lock-button">
+            🔒 Lock
+        </button>
+
+    </div>
+
+</header>
+<section class="dashboard"></section>
+<!-- ========================= -->
+<!-- DASHBOARD SUMMARY -->
+<!-- ========================= -->
+
+<section class="dashboard">
+
+    <div class="dashboard-card">
+        <p>Wallet Balance</p>
+        <h2 id="dashboardBalance">Loading...</h2>
+    </div>
+
+    <div class="dashboard-card">
+        <p>Total Transactions</p>
+        <h2 id="totalTransactions">0</h2>
+    </div>
+
+    <div class="dashboard-card">
+        <p>Sent</p>
+        <h2 id="sentTransactions">0</h2>
+    </div>
+
+    <div class="dashboard-card">
+        <p>Received</p>
+        <h2 id="receivedTransactions">0</h2>
+    </div>
+
+</section>
+
+
+        <!-- ========================= -->
+        <!-- BALANCE CARD -->
+        <!-- ========================= -->
+
+        <section class="balance-card">
+
+            <p class="balance-label">
+                Wallet Balance
+            </p>
+
+            <h2 id="balance">
+                Loading...
+            </h2>
+
+            <button id="refreshBalance" class="refresh-button">
+                🔄 Refresh Balance
+            </button>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- WALLET INFORMATION -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <h2>Wallet Information</h2>
+
+
+            <!-- ADDRESS -->
+
+            <div class="info-group">
+
+                <label>
+                    Wallet Address
+                </label>
+
+                <div class="value-row">
+
+                    <p id="address">
+                        Not loaded
+                    </p>
+
+                    <button id="copyAddress">
+                        Copy
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRIVATE KEY -->
+
+            <div class="info-group">
+
+                <label>
+                    Private Key
+                </label>
+
+                <div class="value-row">
+
+                    <p id="privateKey">
+                        ••••••••••••••••••••
+                    </p>
+
+                    <button id="showPrivateKey">
+                        Show
+                    </button>
+
+                </div>
+
+                <button
+                    id="copyPrivateKey"
+                    class="secondary-button"
+                >
+                    Copy Private Key
+                </button>
+
+            </div>
+
+
+            <!-- CREATE / LOAD -->
+
+            <button
+                id="createWallet"
+                class="primary-button"
+            >
+                Create / Load Wallet
+            </button>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SEND ETH -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <h2>Send ETH</h2>
+
+            <p class="section-description">
+                Send Ethereum to another wallet address.
+            </p>
+
+
+            <!-- RECEIVER -->
+
+            <div class="input-group">
+
+                <label for="receiverAddress">
+                    Receiver Address
+                </label>
+
+                <input
+                    type="text"
+                    id="receiverAddress"
+                    placeholder="0x..."
+                >
+
+            </div>
+
+
+            <!-- AMOUNT -->
+
+            <div class="input-group">
+
+                <label for="amount">
+                    Amount
+                </label>
+
+                <div class="amount-input">
+
+                    <input
+                        type="text"
+                        id="amount"
+                        placeholder="0.00"
+                    >
+
+                    <span>
+                        ETH
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="sendTransaction"
+                class="primary-button send-button"
+            >
+                Send ETH
+            </button>
+
+
+            <!-- STATUS -->
+
+            <p id="transactionStatus" class="status-message"></p>
+
+
+            <!-- TRANSACTION HASH -->
+
+            <div class="hash-box">
+
+                <p>
+                    <strong>Transaction Hash</strong>
+                </p>
+
+                <p id="txHash">
+                    -
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- TRANSACTION HISTORY -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Transaction History
+                    </h2>
+
+                    <p class="section-description">
+                        Your recent Ethereum transactions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="transactionHistory">
+                Loading transactions...
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- TRANSACTION DETAILS -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <h2>
+                Transaction Details
+            </h2>
+
+            <div id="transactionDetails">
+
+                <div class="detail-row">
+
+                    <span>
+                        Transaction Hash
+                    </span>
+
+                    <p id="detailHash">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        From
+                    </span>
+
+                    <p id="detailFrom">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        To
+                    </span>
+
+                    <p id="detailTo">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Amount
+                    </span>
+
+                    <p id="detailAmount">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Block Number
+                    </span>
+
+                    <p id="detailBlock">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <p id="detailStatus">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Gas Used
+                    </span>
+
+                    <p id="detailGas">
+                        -
+                    </p>
+
+                </div>
+
+
+                <a
+                    id="etherscanLink"
+                    href="#"
+                    target="_blank"
+                    class="etherscan-button"
+                >
+                    View on Etherscan ↗
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                Ethereum Wallet • Sepolia Testnet
+            </p>
+
+        </footer>
+
+    </div>
+    <div id="toast"></div>
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
